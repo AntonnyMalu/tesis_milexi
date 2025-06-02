@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if (env('APP_LIVEWIRE_ASSET', false)){
+            //Configuring Livewire's update endpoint
+            Livewire::setUpdateRoute(function ($handle) {
+                return Route::post('/'.env('APP_LIVEWIRE_ASSET').'/livewire/update', $handle)->name('assetlivewire.update');
+            });
+            Livewire::setScriptRoute(function ($handle) {
+                return Route::get('/'.env('APP_LIVEWIRE_ASSET').'/livewire/livewire.js', $handle);
+            });
+        }
     }
 }
