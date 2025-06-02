@@ -29,14 +29,17 @@ class ClaseResource extends Resource
                 Forms\Components\TextInput::make('descripcion')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('imagen')
-                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('edad_min')
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('edad_max')
                     ->required()
                     ->numeric(),
+                Forms\Components\FileUpload::make('imagen')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('images-clases')
+                    ->maxSize(2024),
             ]);
     }
 
@@ -44,6 +47,7 @@ class ClaseResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('imagen'),
                 Tables\Columns\TextColumn::make('nombre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descripcion')
@@ -54,18 +58,6 @@ class ClaseResource extends Resource
                 Tables\Columns\TextColumn::make('edad_max')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

@@ -71,17 +71,11 @@ class RecursoResource extends Resource
                 Tables\Columns\TextColumn::make('descripcion')
                     ->searchable(),
                 Tables\Columns\ToggleColumn::make('estatus'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
+                Tables\Filters\SelectFilter::make('clase')
+                ->relationship('clase', 'nombre'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
