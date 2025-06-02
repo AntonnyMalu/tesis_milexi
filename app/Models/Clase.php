@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Clase extends Model
@@ -17,5 +18,10 @@ class Clase extends Model
         'edad_min',
         'edad_max',
     ];
+
+    public function recursos(): HasMany
+    {
+        return $this->hasMany(Recurso::class, 'clases_id', 'id');
+    }
 
 }
