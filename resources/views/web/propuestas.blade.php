@@ -17,7 +17,7 @@
     <!-- Page Header End -->
 
 
-    @include('web.content_propuestas')
+    @livewire('propuesta-component')
 
 
 @endsection

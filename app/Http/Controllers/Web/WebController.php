@@ -3,18 +3,26 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Clase;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
+    protected int $delay = 0;
+    public mixed $listarClases = [];
+
     public function index()
     {
-        return view('welcome');
+        $this->getDataClases(6);
+        return view('welcome')
+            ->with('clases',$this->listarClases);
     }
 
     public function clases()
     {
-        return view('web.clases');
+        $this->getDataClases();
+        return view('web.clases')
+            ->with('clases',$this->listarClases);
     }
 
     public function propuestas()
@@ -25,5 +33,36 @@ class WebController extends Controller
     public function sobre_nosotros()
     {
         return view('web.nosotros');
+    }
+
+    protected function delay(): int
+    {
+        if ($this->delay){
+            if ($this->delay == 1){
+                $this->delay = $this->delay + 2;
+            }else{
+                if ($this->delay == 5){
+                    $this->delay = 1;
+                }else{
+                    $this->delay = $this->delay + 2;
+                }
+            }
+        }else{
+            $this->delay = 1;
+        }
+        return $this->delay;
+    }
+
+    protected function getDataClases($limit = null): void
+    {
+        if ($limit){
+            $this->listarClases = Clase::where('estatus', 1)->limit($limit)->get();
+        }else{
+            $this->listarClases = Clase::where('estatus', 1)->get();
+        }
+        $this->listarClases->each(function ($clase){
+            //data-wow-delay
+            $clase->delay = $this->delay();
+        });
     }
 }

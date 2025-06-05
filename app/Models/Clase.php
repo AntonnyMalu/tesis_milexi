@@ -17,6 +17,7 @@ class Clase extends Model
         'imagen',
         'edad_min',
         'edad_max',
+        'estatus',
     ];
 
     public function recursos(): HasMany

@@ -25,6 +25,7 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('vendor/kider/css/style.css') }}" rel="stylesheet">
     @livewireStyles
+    @vite(['resources/js/app.js'])
 </head>
 
 <body>

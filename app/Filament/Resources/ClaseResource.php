@@ -51,19 +51,25 @@ class ClaseResource extends Resource
                 Tables\Columns\TextColumn::make('nombre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descripcion')
-                    ->searchable(),
+                    ->searchable()
+                    ->limit(50)
+                    ->toggleable(isToggledHiddenByDefault:  true),
                 Tables\Columns\TextColumn::make('edad_min')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('edad_max')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\ToggleColumn::make('estatus'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make()
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

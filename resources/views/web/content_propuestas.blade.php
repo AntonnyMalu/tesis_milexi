@@ -10,13 +10,17 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
                         <h1 class="mb-4">Enviar Propuesta</h1>
-                        <form>
+                        <form class="needs-validation">
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="gname" placeholder="Gurdian Name">
+                                        <input type="text" class="form-control border-0 is-invalid" id="gname" placeholder="Gurdian Name">
                                         <label for="gname">Nombre</label>
+                                        <div class="invalid-feedback">
+                                            <span class="ms-3">hola yonathan</span>
+                                        </div>
                                     </div>
+
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
@@ -41,7 +45,7 @@
 
 
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit" {{--wire:click="verAlerta"--}}>Enviar</button>
                                 </div>
                             </div>
                         </form>
