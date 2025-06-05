@@ -16,4 +16,14 @@ class WebController extends Controller
     {
         return view('web.clases');
     }
+
+    public function propuestas()
+    {
+        return view('web.propuestas');
+    }
+
+    public function sobre_nosotros()
+    {
+        return view('web.nosotros');
+    }
 }
