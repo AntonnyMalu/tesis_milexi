@@ -7,6 +7,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -57,6 +58,12 @@ class DashboardPanelProvider extends PanelProvider
             ])
             ->profile(isSimple: false)
             ->favicon(asset('favicons/favicon-32x32.png'))
-            ;
+            ->navigationItems([
+                NavigationItem::make('Inicio')
+                    ->url(env('APP_URL'), shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-link')
+                ->sort(100)
+            ]);
+
     }
 }

@@ -23,6 +23,6 @@
             </div>--}}
             <a href="{{ route('propuestas') }}" class="nav-item nav-link @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'propuestas') active @endif">Propuestas</a>
         </div>
-        <a href="{{ url('/dashboard') }}" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Panel Administrativo<i class="fa fa-arrow-right ms-3"></i></a>
+        <a href="{{ url('/dashboard') }}" target="_blank" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Panel Administrativo<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>

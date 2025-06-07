@@ -39,6 +39,9 @@ class WebController extends Controller
     public function recursos($id)
     {
         $clase = Clase::find($id);
+        if (!$clase) {
+            return redirect()->route('clases');
+        }
         $recursos = Recurso::where('clases_id', $id)->where('estatus', 1)->get();
         return view('web.recursos')
             ->with('clase', $clase)

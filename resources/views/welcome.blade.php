@@ -14,7 +14,7 @@
                             <div class="col-10 col-lg-8">
                                 <h1 class="display-2 text-white animated slideInDown mb-4">¡Enseña a su ritmo!</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Descubre herramientas que harán mas fácil su aprendizaje.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Empezar</a>
+                                <a href="{{ route('clases') }}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Empezar</a>
                                 {{--<a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>--}}
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             <div class="col-10 col-lg-8">
                                 <h1 class="display-2 text-white animated slideInDown mb-4">¡Enseña a su ritmo!</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Descubre herramientas que harán mas fácil su aprendizaje.</p>
-                                <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Empezar</a>
+                                <a href="{{ route('clases') }}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Empezar</a>
                                 {{--<a href="" class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Our Classes</a>--}}
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 <!-- Classes Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+        <div class="text-center mx-auto mb-5 wow fadeInUp @if($clases->isEmpty())) d-none @endif" data-wow-delay="0.1s" style="max-width: 600px;">
             <h1 class="mb-3">Clases Escolares</h1>
             <p>Estas clases cuentan con recursos útiles diseñados para apoyar a los profesores, facilitando su enseñanza
                 y contribuyendo al mejor desarrollo académico de los niños.</p>

@@ -22,7 +22,7 @@
     <!-- Call To Action Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <div class="text-center mx-auto mb-5 wow fadeInUp @if($recursos->isEmpty())) d-none @endif" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-3">{{ $clase->nombre }}</h1>
                 <p>En sección encontraremos recursos útiles para la clase {{ $clase->nombre }}, lo cual contribuira al desarrollo de los niños.</p>
             </div>
