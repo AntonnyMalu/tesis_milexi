@@ -22,9 +22,27 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="mb-4">Instituto de Educación Especial Menca de Leini</h1>
-                    <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos, ipsum labore duo duo sit no sea diam. Et dolor et kasd ea. Eirmod diam at dolor est vero nonumy magna.</p>
+                    <h2 class="mb-4">Instituto de Educación Especial “Doña Menca de Leoni”</h2>
+                    <p style="text-align: justify;">El Instituto de Educación Especial “Doña Menca de Leoni”, fue fundado el 25 de Abril de 1975.
+                        Surge por la inquietud de una madre Doña Irma Echezuria que tenía un hijo con necesidades especiales,
+                        quien recurrió a los entes gubernamentales con el fin de beneficiar a su hijo y a otros niños desasistidos.</p>
+                    <h3 class="mb-4">Misión</h3>
+                    <p style="text-align: justify;">La Misión del Instituto de Educación Especial “Doña Menca de Leoni” es proporcionar una educación inclusiva y de
+                        calidad a niños, niñas y adolescentes con diversidad funcional, fomentando su desarrollo integral y habilidades sociales. A través de un enfoque
+                        humanista, buscamos crear un ambiente de aprendizaje que promueva la perseverancia, la empatía y el respeto*, y que involucre a las familias y la
+                        comunidad en el proceso educativo, garantizando así el interés superior de nuestros estudiantes.</p>
+                    <h3 class="mb-4">Visión</h3>
+                    <p style="text-align: justify;">La Visión del Instituto de Educación especial “Doña Menca de Leoni” es ser reconocido como un referente en la educación especial
+                        en la región, promoviendo la integración social y escolar de nuestros estudiantes. Nuestro objetivo es contribuir al desarrollo de una
+                        sociedad más inclusiva y solidaria, donde cada niño y niña con diversidad funcional tenga la oportunidad de alcanzar su máximo potencial.</p>
+                    <h3 class="mb-4">Valores</h3>
+                    <ul style="text-align: justify;">
+                        <li><strong>Compromiso:</strong> Con el desarrollo y bienestar de nuestros estudiantes.</li>
+                        <li><strong>Inclusión:</strong> Fomentar un ambiente donde todos se sientan bienvenidos y valorados.</li>
+                        <li><strong>Colaboración:</strong> Trabajar de la mano con familias y la comunidad para lograr un impacto positivo.</li>
+                        <li><strong>Respeto:</strong> Valorar las diferencias individuales y promover la dignidad de cada estudiante.</li>
+                    </ul>
+
                     <div class="row g-4 align-items-center">
                         <div class="col-sm-6 d-none">
                             <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>

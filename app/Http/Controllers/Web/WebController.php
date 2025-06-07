@@ -35,6 +35,11 @@ class WebController extends Controller
         return view('web.nosotros');
     }
 
+    public function recursos()
+    {
+        return view('web.recursos');
+    }
+
     protected function delay(): int
     {
         if ($this->delay){
