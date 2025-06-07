@@ -90,6 +90,13 @@
             video.load();
         }
 
+        $('#exampleModal').on('hidden.bs.modal', function () {
+            // Código a ejecutar después de que el modal se cierra
+            video.pause();
+            video.currentTime = 0;
+            console.log('El modal se cerró');
+        });
+
         console.log('hi!');
     </script>
 @endsection
