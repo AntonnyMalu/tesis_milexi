@@ -83,6 +83,7 @@
 <!-- Template Javascript -->
 <script src="{{ asset('vendor/kider/js/main.js') }}"></script>
 @livewireScripts
+@yield('js')
 </body>
 
 </html>

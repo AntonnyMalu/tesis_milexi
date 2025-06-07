@@ -38,7 +38,11 @@ class WebController extends Controller
 
     public function recursos($id)
     {
-        return view('web.recursos');
+        $clase = Clase::find($id);
+        $recursos = Recurso::where('clases_id', $id)->where('estatus', 1)->get();
+        return view('web.recursos')
+            ->with('clase', $clase)
+            ->with('recursos', $recursos);
     }
 
     protected function delay(): int

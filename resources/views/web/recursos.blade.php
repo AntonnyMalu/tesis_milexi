@@ -5,12 +5,12 @@
     <!-- Page Header End -->
     <div class="container-xxl py-5 page-header position-relative mb-5">
         <div class="container py-5">
-            <h1 class="display-2 text-white animated slideInDown mb-4">Arte y Dibujo</h1>
+            <h1 class="display-2 text-white animated slideInDown mb-4">{{ $clase->nombre }}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="#">Clases</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Arte y Dibujo</li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('clases') }}">Clases</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{ $clase->nombre }}</li>
                 </ol>
             </nav>
         </div>
@@ -23,32 +23,31 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Arte y Dibujo</h1>
-                <p>En sección encontraremos recursos útiles para la clase Arte y Dibujo, lo cual contribuira al desarrollo de los niños.</p>
+                <h1 class="mb-3">{{ $clase->nombre }}</h1>
+                <p>En sección encontraremos recursos útiles para la clase {{ $clase->nombre }}, lo cual contribuira al desarrollo de los niños.</p>
             </div>
             <div class="row">
-                @for($i = 1; $i <= 10; $i++)
+                @foreach($recursos as $recurso)
                     <div class="col-sm-6">
                         <div class="row g-0 pb-4">
                             <div class="col-lg-6 wow fadeIn bg-light rounded" data-wow-delay="0.1s" style="min-height: 400px;">
                                 <div class="position-relative h-100">
-                                    <img class="position-absolute w-100 h-100 rounded" src="{{ asset('vendor/kider/img/call-to-action.jpg') }}" style="/*object-fit: cover;*/">
+                                    <img class="position-absolute w-100 h-100 rounded" src="{{ asset('storage/'.$recurso->imagen) }}" style="object-fit: cover;" alt="">
                                 </div>
                             </div>
                             <div class="col-lg-6 wow fadeIn bg-light rounded" data-wow-delay="0.5s">
                                 <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                    <h1 class="mb-4">Become A Teacher</h1>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
-                                        Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
-                                    </p>
-                                    <button type="button" class="btn btn-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <h3 class="mb-4 text-uppercase">{{ $recurso->nombre }}</h3>
+                                    <p class="mb-4" style="text-align: justify;">{{ $recurso->descripcion }}</p>
+                                    <input id="url_video_{{ $recurso->id }}" type="hidden" value="{{ asset('storage/'.$recurso->video) }}">
+                                    <button type="button" onclick="getvideo({{ $recurso->id }})" class="btn btn-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Iniciar<i class="fa fa-arrow-right ms-2"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
@@ -59,17 +58,38 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body p-0">
-                    <button type="button" class="float-end btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="ratio  ratio-21x9">
-                    <video controls>
-                        <source src="{{ asset('storage/videos-recursos/01JX5FXY89P7WQ7YV3MD0R40VF.mp4') }}" type="{{ 'video/mp4' }}">
-                        Your browser does not support the video tag.
-                    </video>
+
+                    <div class="row justify-content-end">
+                        <button type="button" class="btn-close me-4 mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
+                    <div class="ratio  ratio-21x9">
+                        <video id="hls-video" controls>
+                            <source id="change-src" src="" type="">
+                            Su navegador no soporta la etiqueta de vídeo.
+                        </video>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
 
+@endsection
+
+@section('js')
+    <script type="application/javascript">
+        let video = document.getElementById('hls-video');
+        let source = document.getElementById('change-src');
+
+        function getvideo(id) {
+            let url_video = document.getElementById('url_video_' + id).value;
+            video.pause();
+            source.setAttribute('src', url_video);
+            video.load();
+        }
+
+        console.log('hi!');
+    </script>
 @endsection
