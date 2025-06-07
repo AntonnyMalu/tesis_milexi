@@ -10,42 +10,51 @@
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
                         <h1 class="mb-4">Enviar Propuesta</h1>
-                        <form class="needs-validation">
+                        <form wire:submit="save"  class="needs-validation">
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control border-0 is-invalid" id="gname" placeholder="Gurdian Name">
+                                        <input type="text" wire:model="nombre" class="form-control border-0 @error('nombre') is-invalid @enderror" id="gname" placeholder="Nombre">
                                         <label for="gname">Nombre</label>
                                         <div class="invalid-feedback">
-                                            <span class="ms-3">hola yonathan</span>
+                                            <span class="">@error('nombre') {{ $message }} @enderror</span>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
+                                        <input type="text" wire:model="correo" class="form-control border-0 @error('correo') is-invalid @enderror" id="gmail" placeholder="Email">
                                         <label for="gmail">Correo</label>
+                                        <div class="invalid-feedback">
+                                            <span class="">@error('correo') {{ $message }} @enderror</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="gmail" placeholder="Gurdian Email">
-                                        <label for="gmail">Url del recurso</label>
+                                        <input type="text" wire:model="url" class="form-control border-0 @error('nombre') is-invalid @enderror" id="gurl" placeholder="Dirección URL">
+                                        <label for="gurl">URL del recurso</label>
+                                        <div class="invalid-feedback">
+                                            <span class="">@error('url') {{ $message }} @enderror</span>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                        <textarea wire:model="descripcion" class="form-control border-0 @error('descripcion') is-invalid @enderror" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
                                         <label for="message">Descripción</label>
+                                        <div class="invalid-feedback">
+                                            <span class="">@error('descripcion') {{ $message }} @enderror</span>
+                                        </div>
                                     </div>
                                 </div>
 
 
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="button" wire:click="verAlerta">Enviar</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Enviar</button>
                                 </div>
                             </div>
                         </form>
