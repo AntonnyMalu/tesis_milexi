@@ -23,39 +23,49 @@ class RecursoResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('clases_id')
-                ->label('Clase')
-                ->relationship('clase', 'nombre')
-                ->searchable()
-                ->preload()
-                ->createOptionForm([
-                    Forms\Components\TextInput::make('nombre')
+                Forms\Components\Fieldset::make('')
+                    ->schema([
+                        Forms\Components\Select::make('clases_id')
+                            ->label('Clase')
+                            ->relationship('clase', 'nombre')
+                            ->searchable()
+                            ->preload()
+                            ->createOptionForm([
+                                Forms\Components\TextInput::make('nombre')
+                                    ->required()
+                                    ->maxLength(255),
+                                Forms\Components\TextInput::make('descripcion')
+                                    ->required()
+                                    ->maxLength(255),
+                                Forms\Components\TextInput::make('edad_min')
+                                    ->required()
+                                    ->numeric(),
+                                Forms\Components\TextInput::make('edad_max')
+                                    ->required()
+                                    ->numeric(),
+                            ]),
+                        Forms\Components\TextInput::make('nombre')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('descripcion')
+                            ->required()
+                            ->maxLength(255)
+                        ->columnSpanFull(),
+                    ]),
+                Forms\Components\Fieldset::make('')
+                ->schema([
+                    Forms\Components\FileUpload::make('imagen')
+                        ->image()
+                        ->imageEditor()
+                        ->directory('images-recursos')
                         ->required()
-                        ->maxLength(255),
-                    Forms\Components\TextInput::make('descripcion')
+                        ->maxSize(3072),
+                    Forms\Components\FileUpload::make('video')
                         ->required()
-                        ->maxLength(255),
-                    Forms\Components\TextInput::make('edad_min')
-                        ->required()
-                        ->numeric(),
-                    Forms\Components\TextInput::make('edad_max')
-                        ->required()
-                        ->numeric(),
-                ]),
-                Forms\Components\TextInput::make('nombre')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('descripcion')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('imagen')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('video')
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('url')
-                    ->columnSpanFull(),
-                Forms\Components\Toggle::make('estatus')
-                    ->required(),
+                        ->directory('videos-recursos')
+                        //->preserveFilenames()
+                        ->maxSize(50000),
+                ])
             ]);
     }
 
@@ -75,7 +85,7 @@ class RecursoResource extends Resource
             ->filters([
                 //
                 Tables\Filters\SelectFilter::make('clase')
-                ->relationship('clase', 'nombre'),
+                    ->relationship('clase', 'nombre'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

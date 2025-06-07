@@ -45,7 +45,7 @@
 
 
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit" {{--wire:click="verAlerta"--}}>Enviar</button>
+                                    <button class="btn btn-primary w-100 py-3" type="button" wire:click="verAlerta">Enviar</button>
                                 </div>
                             </div>
                         </form>

@@ -16,6 +16,7 @@ class Recurso extends Model
         'descripcion',
         'imagen',
         'video',
+        'type',
         'url',
         'estatus',
     ];
