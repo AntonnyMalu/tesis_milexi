@@ -17,7 +17,8 @@ class RecursoResource extends Resource
 {
     protected static ?string $model = Recurso::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-film';
+    protected static ?int $navigationSort = 97;
 
     public static function form(Form $form): Form
     {

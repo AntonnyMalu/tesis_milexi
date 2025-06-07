@@ -12,5 +12,6 @@ class Propuesta extends Model
         'correo',
         'descripcion',
         'url',
+        'estatus',
     ];
 }

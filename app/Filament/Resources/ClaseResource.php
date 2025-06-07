@@ -19,6 +19,7 @@ class ClaseResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
     public static function form(Form $form): Form
     {
         return $form
@@ -28,7 +29,7 @@ class ClaseResource extends Resource
                         Forms\Components\TextInput::make('nombre')
                             ->required()
                             ->maxLength(255)
-                        ->columnSpan(2),
+                            ->columnSpan(2),
                         Forms\Components\TextInput::make('edad_min')
                             ->required()
                             ->numeric(),
@@ -36,7 +37,7 @@ class ClaseResource extends Resource
                             ->required()
                             ->numeric(),
                     ])
-                ->columns(4),
+                    ->columns(4),
                 Forms\Components\Fieldset::make('')
                     ->schema([
                         Forms\Components\Textarea::make('descripcion')
@@ -49,7 +50,7 @@ class ClaseResource extends Resource
                             ->imageEditor()
                             ->directory('images-clases')
                             ->maxSize(2024)
-                        ->required(),
+                            ->required(),
                     ]),
             ]);
     }
@@ -67,11 +68,14 @@ class ClaseResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('edad_min')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->alignCenter(),
                 Tables\Columns\TextColumn::make('edad_max')
                     ->numeric()
-                    ->sortable(),
-                Tables\Columns\ToggleColumn::make('estatus'),
+                    ->sortable()
+                    ->alignCenter(),
+                Tables\Columns\ToggleColumn::make('estatus')
+                ->alignCenter(),
             ])
             ->filters([
                 //
