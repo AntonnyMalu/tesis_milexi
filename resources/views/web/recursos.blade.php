@@ -41,7 +41,9 @@
                                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.
                                         Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet
                                     </p>
-                                    <a class="btn btn-primary py-3 px-5" href="">Iniciar<i class="fa fa-arrow-right ms-2"></i></a>
+                                    <button type="button" class="btn btn-primary py-3 px-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Iniciar<i class="fa fa-arrow-right ms-2"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -51,6 +53,23 @@
         </div>
     </div>
     <!-- Call To Action End -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <button type="button" class="float-end btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="ratio  ratio-21x9">
+                    <video controls>
+                        <source src="{{ asset('storage/videos-recursos/01JX5FXY89P7WQ7YV3MD0R40VF.mp4') }}" type="{{ 'video/mp4' }}">
+                        Your browser does not support the video tag.
+                    </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @endsection
