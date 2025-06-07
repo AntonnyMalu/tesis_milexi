@@ -23,23 +23,34 @@ class ClaseResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('nombre')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('descripcion')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('edad_min')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('edad_max')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\FileUpload::make('imagen')
-                    ->image()
-                    ->imageEditor()
-                    ->directory('images-clases')
-                    ->maxSize(2024),
+                Forms\Components\Fieldset::make('')
+                    ->schema([
+                        Forms\Components\TextInput::make('nombre')
+                            ->required()
+                            ->maxLength(255)
+                        ->columnSpan(2),
+                        Forms\Components\TextInput::make('edad_min')
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\TextInput::make('edad_max')
+                            ->required()
+                            ->numeric(),
+                    ])
+                ->columns(4),
+                Forms\Components\Fieldset::make('')
+                    ->schema([
+                        Forms\Components\Textarea::make('descripcion')
+                            ->rows(10)
+                            ->cols(20)
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\FileUpload::make('imagen')
+                            ->image()
+                            ->imageEditor()
+                            ->directory('images-clases')
+                            ->maxSize(2024)
+                        ->required(),
+                    ]),
             ]);
     }
 
@@ -53,7 +64,7 @@ class ClaseResource extends Resource
                 Tables\Columns\TextColumn::make('descripcion')
                     ->searchable()
                     ->limit(50)
-                    ->toggleable(isToggledHiddenByDefault:  true),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('edad_min')
                     ->numeric()
                     ->sortable(),

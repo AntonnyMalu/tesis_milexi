@@ -63,7 +63,6 @@ class RecursoResource extends Resource
                     Forms\Components\FileUpload::make('video')
                         ->required()
                         ->directory('videos-recursos')
-                        //->preserveFilenames()
                         ->maxSize(50000),
                 ])
             ]);
@@ -79,16 +78,20 @@ class RecursoResource extends Resource
                 Tables\Columns\TextColumn::make('nombre')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('descripcion')
-                    ->searchable(),
-                Tables\Columns\ToggleColumn::make('estatus'),
+                    ->searchable()
+                ->limit(50),
+                Tables\Columns\ToggleColumn::make('estatus')
+                ->alignCenter(),
             ])
             ->filters([
-                //
                 Tables\Filters\SelectFilter::make('clase')
                     ->relationship('clase', 'nombre'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
