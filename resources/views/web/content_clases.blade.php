@@ -13,7 +13,7 @@
 
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $clase->delay }}s">
                     <div class="classes-item">
-                        <a href="{{ route('recursos') }}">
+                        <a href="{{ route('recursos', $clase->id) }}">
                             <div class="bg-light rounded-circle w-75 mx-auto p-3" style="width: 234px; height: 234px;">
                                 <img class="img-fluid rounded-circle" src="{{ asset('storage/'.$clase->imagen) }}" alt="" style="object-fit: cover; width: 100%; height: 100%;">
                             </div>
@@ -32,7 +32,7 @@
                                     <div class="col-4">
                                         <div class="border-top border-3 border-warning pt-2">
                                             <h6 class="text-warning mb-1">Recursos:</h6>
-                                            <small>30 Videos</small>
+                                            <small>{{ $clase->recursos }} Videos</small>
                                         </div>
                                     </div>
                                 </div>

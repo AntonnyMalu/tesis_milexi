@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Clase;
+use App\Models\Recurso;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -35,7 +36,7 @@ class WebController extends Controller
         return view('web.nosotros');
     }
 
-    public function recursos()
+    public function recursos($id)
     {
         return view('web.recursos');
     }
@@ -66,6 +67,8 @@ class WebController extends Controller
             $this->listarClases = Clase::where('estatus', 1)->get();
         }
         $this->listarClases->each(function ($clase){
+            $count = Recurso::where('clases_id', $clase->id)->where('estatus', 1)->count();
+            $clase->recursos = $count;
             //data-wow-delay
             $clase->delay = $this->delay();
         });
